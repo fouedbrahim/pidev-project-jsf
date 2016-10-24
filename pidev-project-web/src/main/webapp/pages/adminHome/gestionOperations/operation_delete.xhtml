@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/template/template.xhtml">
+
+	<ui:define name="pageTitle">Delete doctor</ui:define>
+	
+	<ui:define name="pageSide">
+	
+	<f:metadata>
+		<f:viewParam name="doc" value="#{offersBean.operation}" converter="#{offerConvertor}" />
+	</f:metadata>
+	
+
+
+		<h:form>
+			Do you want to delete #{doctorBean.doctor.firsNameDoc} ?<br />
+			<h:commandButton action="#{doctorBean.delete}" value="Delete" />
+			<h:commandButton action="#{doctorBean.cancel}" value="Cancel" />
+		</h:form>
+	
+
+
+</ui:define>
+</ui:composition>

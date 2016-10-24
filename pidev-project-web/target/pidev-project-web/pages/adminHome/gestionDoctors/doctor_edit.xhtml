@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/template/template.xhtml">
+
+	<ui:define name="pageTitle">manage categories</ui:define>
+	<ui:define name="pageTop">welcome #{loginBean.user.login}</ui:define>
+	<ui:define name="pageSide">
+	
+	
+	<f:metadata>
+		<f:viewParam name="doc" value="#{doctorBean.doctor}" converter="#{doctorConvertor}" />
+		<f:event listener="#{doctorBean.preRenderView()}" type="preRenderView"/>
+	</f:metadata>
+	
+
+		
+		<h:messages />
+		
+		<h:form>
+			
+			<h:panelGrid columns="2">
+				<f:facet name="header">Edit doctor</f:facet>
+		  		
+				<h:outputLabel value="CIN" rendered="#{!empty doctorBean.doctor.numCinDoc}" />
+				<h:outputLabel value="#{doctorBean.doctor.numCinDoc}" rendered="#{!empty doctorBean.doctor.numCinDoc}" />
+					
+				<h:outputLabel for="firstName" value="Name" />
+				<h:inputText id="firstName" value="#{doctorBean.doctor.firsNameDoc}" label="First name" />
+				
+				<h:outputLabel for="lastName" value="Experience" />
+				<h:inputText id="lastName" value="#{doctorBean.doctor.nbrYearsOfExp}" label="Last name"  />
+		
+				<h:outputLabel for="email" value="Clinic" />
+				<h:inputText id="clinic" value="#{doctorBean.doctor.clinic}" />
+				
+				<h:outputLabel for="email" value="Email" />
+				<h:inputText id="email" value="#{doctorBean.doctor.emailDoc}" />
+			
+			<h:outputLabel for="adress" value="Adress" />
+				<h:inputText id="adr" value="#{doctorBean.doctor.adressDoc}" />
+				
+				<h:outputLabel for="Speciality" value="Speciality" />
+				<h:inputText id="speciality" value="#{doctorBean.doctor.specialityDoc}" />
+			
+			
+				<h:commandButton action="#{doctorBean.saveDoctor()}" value="Submit" />
+				<h:button outcome="index.xhtml" value="Cancel"  />
+			</h:panelGrid>
+		</h:form>
+	
+
+</ui:define>
+</ui:composition>

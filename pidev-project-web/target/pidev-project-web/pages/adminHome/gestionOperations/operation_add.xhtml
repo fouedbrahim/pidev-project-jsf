@@ -1,0 +1,50 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/template/template.xhtml">
+
+	<ui:define name="pageTitle">Add doctor</ui:define>
+	
+	<ui:define name="pageSide">
+	
+	
+
+		<h:messages />
+		
+		<h:form>
+			
+			<h:panelGrid columns="2">
+				<f:facet name="header">Add Offer</f:facet>
+		  		
+				<h:outputLabel value="ID" />
+				<h:inputText id="ID" value="#{offersBean.operation.ID_offre}" label="ID"/>
+					
+				<h:outputLabel for="Date" value="Date" />
+				<h:inputText id="Date" value="#{offersBean.operation.date}" label="Date" />
+				
+				<h:outputLabel for="DoctorName" value="Doctor Name" />
+				<h:inputText id="DoctorName" value="#{offersBean.operation.doctorName}" label="Doctor Name"  />
+		
+				<h:outputLabel for="Clinic" value="Clinic" />
+				<h:inputText id="clinic" value="#{offersBean.operation.medicCenterNAme}" label="Clinic" />
+				
+				<h:outputLabel for="Price" value="Price" />
+				<h:inputText id="Price" value="#{offersBean.operation.price_Operation}" />
+			
+			
+				
+				<h:outputLabel for="Publish" value="Publish" />
+				<h:inputText id="Publish" value="#{offersBean.operation.publier}" />
+			
+			<h:outputLabel for="Typeoperation" value="Typeoperation" />
+				<h:inputText id="Typeoperation" value="#{offersBean.operation.type_Operation}" />
+				
+				<h:commandButton action="#{offersBean.saveOperation()}" value="Submit" />
+				<h:button outcome="index.xhtml" value="Cancel"  />
+			</h:panelGrid>
+		</h:form>
+	
+
+</ui:define>
+</ui:composition>

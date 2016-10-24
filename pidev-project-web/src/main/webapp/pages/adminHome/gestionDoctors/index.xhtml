@@ -1,0 +1,68 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/template/template.xhtml">
+
+	<ui:define name="pageTitle">manage Doctors</ui:define>
+
+	
+	
+
+	<ui:define name="pageSide">
+		
+		<h:messages />
+		
+		<h:form>
+		  
+			<h:commandLink action="doctor_add" value="Add Doctor" />
+			
+		</h:form>
+		
+		<h:dataTable border="1" var="doc" value="#{doctorBean.doctors}">
+			<h:column>
+				<f:facet name="header">CIN</f:facet>
+	   			#{doc.numCinDoc}
+	   		</h:column>
+			<h:column>
+				<f:facet name="header">Name</f:facet>
+	   			#{doc.firsNameDoc}
+	   		</h:column>
+			<h:column>
+				<f:facet name="header">Clinic</f:facet>
+	   			#{doc.clinic}
+	   		</h:column>
+			<h:column>
+				<f:facet name="header">Experience</f:facet>
+	   			#{doc.nbrYearsOfExp}
+	   		</h:column>
+	   		<h:column>
+				<f:facet name="header">Email</f:facet>
+	   			#{doc.emailDoc}
+	   		</h:column>
+	   		<h:column>
+				<f:facet name="header">Adresse</f:facet>
+	   			#{doc.adressDoc}
+	   		</h:column>
+	   		
+	   		<h:column>
+				<f:facet name="header">Speciality</f:facet>
+	   			#{doc.specialityDoc}
+	   		</h:column>
+	   		
+	   		<h:column>
+				<f:facet name="header">Edit</f:facet>
+	   			<h:link outcome="doctor_edit.xhtml" value="Edit Doctor">
+	   				<f:param name="doc" value="#{doc.numCinDoc}"/>
+	   			</h:link>
+	   		</h:column>
+	   		<h:column>
+	   			<f:facet name="header">Delete</f:facet>
+	   			<h:link outcome="doctor_delete.xhtml" value="Delete Doctor">
+	   				<f:param name="doc" value="#{doc.numCinDoc}" />
+	   			</h:link>
+	   		</h:column>	
+		</h:dataTable>
+	
+</ui:define>
+</ui:composition>

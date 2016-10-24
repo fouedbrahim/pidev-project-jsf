@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/template/template.xhtml">
+
+	<ui:define name="pageTitle">manage Operations</ui:define>
+
+	
+	
+
+	<ui:define name="pageSide">
+		
+		<h:messages />
+		
+		<h:form>
+		  
+			<h:commandLink action="operation_add" value="Add Offer" />
+			
+		</h:form>
+		
+		<h:dataTable border="1" var="doc" value="#{offersBean.operations}">
+			<h:column>
+				<f:facet name="header">Date</f:facet>
+	   			#{doc.date}
+	   		</h:column>
+			<h:column>
+				<f:facet name="header">Doctor Name</f:facet>
+	   			#{doc.doctorName}
+	   		</h:column>
+			<h:column>
+				<f:facet name="header">Clinic</f:facet>
+	   			#{doc.medicCenterNAme}
+	   		</h:column>
+			<h:column>
+				<f:facet name="header">Price</f:facet>
+	   			#{doc.price_Operation}
+	   		</h:column>
+	   		<h:column>
+				<f:facet name="header">Type operation</f:facet>
+	   			#{doc.type_Operation}
+	   		</h:column>
+	   		<h:column>
+				<f:facet name="header">Published</f:facet>
+	   			#{doc.publier}
+	   		</h:column>
+	   		
+	   		
+	   		
+	   		<h:column>
+				<f:facet name="header">Edit</f:facet>
+	   			<h:link outcome="operation_edit.xhtml" value="Edit Offer">
+	   				<f:param name="doc" value="#{doc.ID_offre}"/>
+	   			</h:link>
+	   		</h:column>
+	   		<h:column>
+	   			<f:facet name="header">Delete</f:facet>
+	   			<h:link outcome="operation_delete.xhtml" value="Delete Offer">
+	   				<f:param name="doc" value="#{doc.ID_offre}" />
+	   			</h:link>
+	   		</h:column>	
+		</h:dataTable>
+	
+</ui:define>
+</ui:composition>

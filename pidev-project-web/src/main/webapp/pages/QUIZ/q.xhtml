@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+
+
+	<title><ui:insert name="pageTitle" /></title>
+	<h:outputStylesheet library="css" name="style.css" />
+	<script type="text/javascript" src="../../resources/js/question.js"></script>
+
+</h:head>
+<h:body>
+	<div id="container">
+		<div id="top">
+			<ui:insert name="pageTop">
+			</ui:insert>
+		</div>
+
+		<table>
+			<tr>
+				<td>
+					<div id="side">
+						<ui:insert name="pageSide">
+						
+						
+		
+
+		<div id='container'>
+			<div id='title'>
+				Learning Js Properly: Project #1 - Dynamic Quiz
+			</div>
+   			<br/>
+  			<div id='quiz'></div>
+    		<div class='button' id='next'><a href='#'>Next</a></div>
+    		<div class='button' id='prev'><a href='#'>Prev</a></div>
+    		<div class='button' id='start'> <a href='#'>Start Over</a></div>
+    		
+    	</div>
+						
+						
+						</ui:insert>
+					</div>
+				</td>
+				<td>
+					<div id="content">
+						<ui:insert name="pageContent">
+
+						</ui:insert>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div id="footer">TTMA</div>
+	</div>
+</h:body>
+</html>
